@@ -1,1 +1,1 @@
-web: gunicorn growbotai2.wsgi --logfile -
+web: gunicorn growbotai2.wsgi
