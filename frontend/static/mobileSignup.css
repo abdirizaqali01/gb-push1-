@@ -1,0 +1,22 @@
+@media (max-width: 500px) {
+    img {
+        max-width: 55%;
+      }
+      form div {
+        margin-bottom: 0;
+      }
+      form label {
+        margin-bottom: 0;
+      }
+      body {
+        overflow: auto;
+      }
+      form input[type="text"],
+      form input[type="password"],
+      form input[type="email"],
+      form select {
+
+        font-size: 0.8em;
+      }
+      
+}

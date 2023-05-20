@@ -3,35 +3,48 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 import openai
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
-openai.api_key = "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"
+
+openai.api_key = "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"
 
 # Create your views here.
 def index (request, *args, **kwargs):
-    return render(request, 'frontend/index.html')
+    return render(request, 'landingPage.html')
 
 
-@csrf_exempt
+@login_required
 def chat(request):
+    global conversation
+
     if request.method == "POST":
         message = request.POST.get("message", "")
-        print(f"Message: {message}")
+
+        conversation.append(f"User: {message}")
+        conversation_text = "\n".join(conversation[-6:])  # Keep the last 6 messages (3 prompts)
+
         response = openai.Completion.create(
-            engine="davinci",
-            prompt=f"Imagine you are a curious naturalist with a soothing voice, a deep love for the natural world, and a knack for observing and describing its beauty and wonder. Your goal is to inspire others to care for and protect the earth's biodiversity through education and a sense of awe and reverence. Conversation:\nUser: {message}\nYou:",
-            max_tokens=1000,
-            n=1,
-            stop=["\nUser:"],
-            temperature=0.5,
+            model="text-davinci-003",
+            prompt=f"The following is a conversation with an AI urban farming assistant. The assistant is a robot version of David Attenborough named Mr Growbot.\n{conversation_text}\nAI:",
+            temperature=0.9,
+            max_tokens=150,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0.6,
+            stop=[" Human:", " AI:"]
         )
         result = response.choices[0].text.strip()
-        return render(request, 'chat_page.html', {'result': result})
+        conversation.append(f"Mr Growbot: {result}")
+
+        # Remove old conversation history
+        conversation = conversation[-6:]
+
+        messages = list(zip(conversation[::2], conversation[1::2]))
+        return render(request, 'chat_page.html', {'messages': messages})
     else:
+        conversation = []  # Reset the conversation when loading the page
         return render(request, 'chat_page.html')
-
-
+    
 def signup(request):
     if request.method == 'POST':
         # Get the form data from the request
@@ -47,14 +60,18 @@ def signup(request):
 
         # Create a new User object and save it to the database
         user = User.objects.create_user(username, email, password)
-        user.region = region
+        user.region = region  # Save the user region
         user.save()
 
-        # Redirect the user to the login page
-        return redirect('login')
-    else:
-        return render(request, 'user_create.html')
+        # Authenticate the user after signing up
+        authenticated_user = authenticate(request, username=username, password=password)
 
+        if authenticated_user is not None:
+            login(request, authenticated_user)
+            request.session['user_id'] = authenticated_user.id  # Create a session with the user ID
+            return redirect('chat')  # Redirect to the chat page
+
+    return render(request, 'user_create.html')
 
 def login_view(request):
     if request.method == 'POST':

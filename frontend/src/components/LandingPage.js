@@ -21,14 +21,14 @@ export default class LandingPage extends Component {
         <Routes>
           <Route path="/" element={
           <div className="container">
-              <h1>Welcome to our growbot</h1>
+              <h1 className="heading">Welcome to our growbot</h1>
               <p>Please sign in or create an account</p>
               <div className="button-container">
                 <Link to="/login">
-                  <button>Login</button>
+                  <button className="login-btn">Login</button>
                 </Link>
                 <Link to="/signup">
-                  <button>Sign up</button>
+                  <button className="signup-btn">Sign up</button>
                 </Link>
               </div>
             </div>

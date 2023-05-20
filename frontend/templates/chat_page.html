@@ -1,20 +1,40 @@
-{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="{% static 'Chat.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'mobileChat.css' %}">
+{% endblock %}
 
 {% block content %}
-  <h1>Chat Page</h1>
-    {% if error_message %}
-        <p style="color: red">{{ error_message }}</p>
-    {% endif %}
+  <div id="Header">
+    <h1>Mr Growbot</h1>
+  </div>
+  <img src="{% static 'gbr.png' %}" alt="GBR Logo">
+
+  {% if error_message %}
+    <p style="color: red">{{ error_message }}</p>
+  {% endif %}
+  <div id="messages">
+    {% for message, response in messages %}
+      <p>{{ message }}</p>
+      <p>{{ response }}</p>
+      <br> 
+    {% endfor %}
+  </div>  
+
   <form method="post" action="{% url 'chat' %}">
     {% csrf_token %}
     <div>
       <label for="message">Message:</label>
-      <input type="text" name="message" required>
+      <textarea name="message" required rows="1" style="resize: vertical; max-height: 3em;"></textarea>
     </div>
     <button type="submit">Send</button>
   </form>
+
   {% if result %}
-    <p>User: {{ "message" }}</p>
-    <p>Growbot: {{ result }}</p>
+    <p>{{ result.0 }}</p>
+    <p>{{ result.1 }}</p>
+    <br> 
   {% endif %}
 {% endblock %}
