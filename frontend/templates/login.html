@@ -10,7 +10,7 @@
   {% if error_message %}
     <p style="color: red">{{ error_message }}</p>
   {% endif %}
-  <img src="{% static 'gbr.png' %}" alt="GBR Logo">
+  <img src="{% static 'gbr.png' %}" alt="Logo" class="robot-image">
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <div>
