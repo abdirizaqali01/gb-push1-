@@ -1,7 +1,8 @@
 @media (max-width: 500px) {
   body {
+    overflow: hidden;
     background-color: #353535;
-    font-family: "Signifer-Light", sans-serif;
+    font-family: "Josefin Sans";
     margin: 0;
     padding: 0;
     color: white;
@@ -10,32 +11,31 @@
     align-items: center;
     justify-content: center;
     font-size: 1.2em;
-    overflow: -moz-hidden-unscrollable;
   }
 
   h1 {
     text-align: center;
-    margin-top: 14vh;
+    margin-top: 13vh;
   }
 
   img {
     max-width: 65%;
     padding-left: 2vh;
   }
-
+  
   .button-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    max-width: 100%;
     padding-top: 1vh;
-    padding-left: 7vh;
+    padding-left: 12vh;
   }
 
   .login-btn,
   .signup-btn {
     width: 100%;
-    padding-left: 4vh;
+    padding-left: 0vh;
   }
 
   .banner{

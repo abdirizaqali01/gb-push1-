@@ -2,15 +2,16 @@
 
 {% block styles %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="{% static 'landingPage.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'mobileLanding.css' %}">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Josefin+Sans" />
 {% endblock %}
 
 {% block content %}
-    <h1 className="heading">Meet</h1>
+    <h1 className="heading">meet</h1>
     <div class="banner">
       <img src="./static/banner.png" alt="Banner">
     </div>
+  
       <img src="{% static 'gbr.png' %}" alt="Logo" class="robot-image">
     <div class="button-container">
       <a href="login" onclick="window.location.href='login'">

@@ -51,8 +51,7 @@ form {
   align-items: center;
   height: 10vh;
   padding: 0;
-  margin: 0;
-  justify-content: center;
+  margin-left: 7vh;
 }
 
 form label {
