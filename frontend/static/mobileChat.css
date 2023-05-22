@@ -1,6 +1,5 @@
 @media (max-width: 500px) {
   body {
-    background-image: url('./static/gbr.png');
     background-color: #353535;
     font-family: "Signifer-Light", sans-serif;
     margin: 0;
