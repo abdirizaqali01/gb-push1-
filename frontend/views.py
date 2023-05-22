@@ -6,7 +6,7 @@ import openai
 from django.contrib.auth.decorators import login_required
 
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Create your views here.
 def index (request, *args, **kwargs):

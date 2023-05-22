@@ -1,85 +1,82 @@
-
 @media (max-width: 500px) {
-  
-    body {
-        background-color: #353535;
-        font-family: "Signifer-Light", sans-serif;
-        margin: 0;
-        padding: 0;
-      }
+  body {
+    background-image: url('./static/gbr.png');
+    background-color: #353535;
+    font-family: "Signifer-Light", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+  }
 
-      img {
-        max-width: 80%;
-        margin-left: 3vh;
-        margin-top: 25vh;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        opacity: 0.3; /* Set the opacity to 30% */
-      }
+  img {
+    max-width: 80%;
+    max-height: 100%;
+    margin-left: 7vh;
+    margin-top: 13vh;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    opacity: 0.3;
+  }
 
-      #header {
-        position: fixed;
-        width: 100%;
-        height: 10vh;
-        background-color: #353535;
-        margin: 0;
-        padding: 0;
-      }
+  #Header {
+    position: fixed;
+    margin-top: 3%;
+    width: 100%;
+    top: 0;
+    background-color: #353535;
+    padding: 0;
+  }
 
-      h1 {
-        margin-top: 20px;
-        text-align: center;
-        padding: 0;
-      }
-      
-      #messages {
-        margin-top: 10vh;
-        padding: 0 20px;
-        color: white;
-        background-color: #353535;
-        height: 80vh;
-        overflow-y: scroll;
-      }
-      
-      form {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: #353535;
-        display: flex;
-        align-items: center;
-        height: 10vh;
-        padding: 0;
-        margin: 0;
-        justify-content: center;
-      }
-      
-      form label {
-        flex: none;
-        margin-right: 10px;
-        padding: 0;
-        margin: 0;
-        justify-content: center;
+  h1 {
+    margin-top: 20px;
+    text-align: center;
+    padding: 0;
+  }
 
-      }
-      
-      form textarea[name="message"] {
-        flex: 1;
-        padding: 1vh;
-        margin: 0;
-        overflow-y: scroll;
-        resize: vertical;
-        max-height: 5em;
-        font-family: "Signifer-Light", sans-serif;
+  #messages {
+    margin-top: 14vh;
+    margin-bottom: 6vh;
+    padding: 0 20px;
+    background-color: #353535;
+    height: 80vh;
+    overflow-y: scroll;
+  }
 
-      }
+  form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #353535;
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+  }
 
-      form button {
-        flex: none;
-        margin-left: 10px;
-      }
+  form label {
+    flex: none;
+    margin-right: 10px;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+  }
+
+  form textarea[name="message"] {
+    flex: 1;
+    padding: 1vh;
+    margin: 0;
+    overflow-y: scroll;
+    resize: vertical;
+    max-height: 5em;
+    font-family: "Signifer-Light", sans-serif;
+  }
+
+  form button {
+    flex: none;
+    margin-left: 10px;
+  }
 }
-  
-  
