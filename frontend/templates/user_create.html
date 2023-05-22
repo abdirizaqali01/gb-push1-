@@ -30,17 +30,8 @@
       <label for="password2">Retype Password:</label>
       <input type="password" name="password2" required>
     </div>
-    <div>
-      <label for="region">Region:</label>
-      <select name="region">
-        <option value="north-america">North America</option>
-        <option value="south-america">South America</option>
-        <option value="europe">Europe</option>
-        <option value="asia">Asia</option>
-        <option value="africa">Africa</option>
-        <option value="australia">Australia</option>
-      </select>
-    </div>
-    <button type="submit">Sign Up</button>
+    <button type="submit" class="signup-button">
+      <img src="{% static 'Signup.png' %}" alt="Signup" class="signup-image">
+    </button>
   </form>
 {% endblock %}

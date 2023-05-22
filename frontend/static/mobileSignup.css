@@ -1,7 +1,9 @@
 @media (max-width: 500px) {
     img {
         max-width: 55%;
+        margin-left: 3vh;
       }
+
       form div {
         margin-bottom: 0;
       }
@@ -15,8 +17,18 @@
       form input[type="password"],
       form input[type="email"],
       form select {
-
         font-size: 0.8em;
       }
+
+      form button.signup-button {
+        padding: 0;
+        padding-right: 0;
+      }
+
+      button{
+        background-color: transparent;
+        margin-top: 4%;
+        margin-right: 3vh;
+     }
       
 }

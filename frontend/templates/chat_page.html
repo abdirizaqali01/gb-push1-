@@ -7,10 +7,10 @@
 {% endblock %}
 
 {% block content %}
-  <div id="Header">
-    <h1>Mr Growbot</h1>
+  <div class="banner">
+    <img src="{% static 'banner.png' %}" alt="Banner" class="banner">
   </div>
-  <img src="{% static 'gbr.png' %}" alt="GBR Logo">
+
 
   {% if error_message %}
     <p style="color: red">{{ error_message }}</p>
@@ -25,11 +25,14 @@
 
   <form method="post" action="{% url 'chat' %}">
     {% csrf_token %}
-    <div>
-      <label for="message">Message:</label>
+    <div class = "form-field">
+      <label for="message">Ask:</label>
       <textarea name="message" required rows="1" style="resize: vertical; max-height: 3em;"></textarea>
     </div>
-    <button type="submit">Send</button>
+    <button type="submit" class="submit-button">
+      <img src="{% static 'send.png' %}" alt="submit" class="submit-image">
+    </button>
+  </form>
   </form>
 
   {% if result %}

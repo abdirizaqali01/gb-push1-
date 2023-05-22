@@ -7,11 +7,17 @@
 {% endblock %}
 
 {% block content %}
-    <h1 className="heading">Welcome to Mr Growbot</h1>
+    <h1 className="heading">Meet</h1>
+    <div class="banner">
+      <img src="./static/banner.png" alt="Banner">
+    </div>
     <img src="./static/gbr.png" alt="GBR Logo">
-    <p>Please sign in or create an account!</p>
     <div class="button-container">
-      <button class="login-btn" onclick="window.location.href='login'">Login</button>
-      <button class="signup-btn" onclick="window.location.href='signup'">Sign up</button>
+      <a href="login" onclick="window.location.href='login'">
+        <img class="login-btn" src="./static/Login.png" alt="Login" />
+      </a>
+      <a href="signup" onclick="window.location.href='signup'">
+        <img class="signup-btn" src="./static/Signup.png" alt="signup" />
+      </a>
   </div>
 {% endblock %}

@@ -51,7 +51,6 @@ def signup(request):
         username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password')
-        region = request.POST.get('region')
 
         # Check if the user already exists
         if User.objects.filter(username=username).exists():
@@ -60,7 +59,6 @@ def signup(request):
 
         # Create a new User object and save it to the database
         user = User.objects.create_user(username, email, password)
-        user.region = region  # Save the user region
         user.save()
 
         # Authenticate the user after signing up

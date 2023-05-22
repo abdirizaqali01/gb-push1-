@@ -1,29 +1,47 @@
 @media (max-width: 500px) {
-    body {
-      background-color: #353535;
-      font-family: "Signifer-Light", sans-serif;
-      margin: 0;
-      padding: 0;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2em;
-    }
-
-    h1 {
-        text-align: center;
-        margin-top: 45%;
-      }
-
-    img {
-      max-width: 55%;
-    }
-
-    .login-btn, .signup-btn {
-        background-color: #448262;
-        color: white;
-      }
+  body {
+    background-color: #353535;
+    font-family: "Signifer-Light", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    overflow: -moz-hidden-unscrollable;
   }
-  
+
+  h1 {
+    text-align: center;
+    margin-top: 14vh;
+  }
+
+  img {
+    max-width: 65%;
+    padding-left: 2vh;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 1vh;
+    padding-left: 7vh;
+  }
+
+  .login-btn,
+  .signup-btn {
+    width: 100%;
+    padding-left: 4vh;
+  }
+
+  .banner{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-left: 12vh;
+    }
+}

@@ -13,15 +13,16 @@
   <img src="{% static 'gbr.png' %}" alt="GBR Logo">
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    <h1>Mr Growbot</h1>
     <div>
-      <label for="username_or_email">Username or Email:</label>
+      <label for="username_or_email">Email:</label>
       <input type="text" name="username_or_email" required>
     </div>
     <div>
       <label for="password">Password:</label>
       <input type="password" name="password" required>
     </div>
-    <button type="submit">Login</button>
+    <button type="submit" class="login-button">
+      <img src="{% static 'Login.png' %}" alt="Login" class="login-image">
+    </button>
   </form>
 {% endblock %}
