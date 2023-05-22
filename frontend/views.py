@@ -6,12 +6,10 @@ import openai
 from django.contrib.auth.decorators import login_required
 
 
-openai.api_key = "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"
 
 # Create your views here.
 def index (request, *args, **kwargs):
     return render(request, 'landingPage.html')
-
 
 @login_required
 def chat(request):
@@ -21,7 +19,9 @@ def chat(request):
         message = request.POST.get("message", "")
 
         conversation.append(f"User: {message}")
-        conversation_text = "\n".join(conversation[-6:])  # Keep the last 6 messages (3 prompts)
+        conversation_text = "\n".join(conversation[-6:]) 
+
+        openai.api_key = os.getenv("OPENAI_API_KEY")
 
         response = openai.Completion.create(
             model="text-davinci-003",
@@ -42,7 +42,7 @@ def chat(request):
         messages = list(zip(conversation[::2], conversation[1::2]))
         return render(request, 'chat_page.html', {'messages': messages})
     else:
-        conversation = []  # Reset the conversation when loading the page
+        conversation = []
         return render(request, 'chat_page.html')
     
 def signup(request):
